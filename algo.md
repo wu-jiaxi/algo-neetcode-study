@@ -225,14 +225,5 @@ var isBalanced = function(root) {
 100 Same Tree https://www.youtube.com/watch?v=J4zQohiqhRI https://leetcode.com/problems/same-tree/description/
 
 ```jsx
-var isSameTree = function (p, q) {
-  if (p === null && q === null) return true;
-  if (
-    (p !== null && q === null) ||
-    (p === null && q !== null) ||
-    p.val !== q.val
-  )
-    return false;
-  return isSameTree(p.left, q.left) && isSameTree(q.right, p.right);
-};
+
 ```
