@@ -236,3 +236,19 @@ var isSameTree = function (p, q) {
   return isSameTree(p.left, q.left) && isSameTree(q.right, p.right);
 };
 ```
+
+235 Lowest Common Ancestor of a Binary Tree https://www.youtube.com/watch?v=fehixeGZY9k
+
+https://leetcode.com/problems/lowest-common-ancestor-of-a-binary-search-tree/description/
+
+```jsx
+var lowestCommonAncestor = function (root, p, q) {
+  if (p.val < root.val && q.val < root.val) {
+    return lowestCommonAncestor(root.left, p, q);
+  } else if (p.val > root.val && q.val > root.val) {
+    return lowestCommonAncestor(root.right, p, q);
+  } else {
+    return root;
+  }
+};
+```
