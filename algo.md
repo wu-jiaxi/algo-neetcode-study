@@ -305,3 +305,26 @@ var rightSideView = function (root) {
   return res;
 };
 ```
+
+[1448. Count Good Nodes in Binary Tree](https://leetcode.com/problems/count-good-nodes-in-binary-tree/) https://leetcode.com/problems/count-good-nodes-in-binary-tree/description/ https://www.youtube.com/watch?v=UwhjCzvBB8Y
+
+```jsx
+var goodNodes = function (root) {
+  let count = 0;
+  let max = root.val;
+
+  function dfs(root, max) {
+    if (root === null) return;
+
+    if (root.val >= max) {
+      max = Math.max(max, root.val);
+      count++;
+    }
+
+    dfs(root.left, max);
+    dfs(root.right, max);
+  }
+  dfs(root, max);
+  return count;
+};
+```
