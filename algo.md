@@ -278,3 +278,30 @@ var levelOrder = function (root) {
   return res;
 };
 ```
+
+199 https://leetcode.com/problems/binary-tree-right-side-view/description/ https://www.youtube.com/watch?v=Uub7EVnp0P8
+
+```jsx
+var rightSideView = function (root) {
+  if (root === null) return [];
+
+  let res = [];
+  let queue = [root];
+
+  while (queue.length) {
+    let levelArray = [];
+    let levelSize = queue.length;
+
+    while (levelSize) {
+      let current = queue.shift();
+      if (current.left) queue.push(current.left);
+      if (current.right) queue.push(current.right);
+
+      levelArray.push(current.val);
+      levelSize--;
+    }
+    res.push(levelArray[levelArray.length - 1]);
+  }
+  return res;
+};
+```
