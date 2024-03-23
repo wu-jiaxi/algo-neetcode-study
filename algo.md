@@ -372,3 +372,27 @@ function findKth(arr, k) {
   }
 }
 ```
+
+[105. Construct Binary Tree from Preorder and Inorder Traversal](https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/)
+
+https://www.youtube.com/watch?v=Zr2NDgOPsTE
+
+```jsx
+var buildTree = function (preorder, inorder) {
+  function recurse(pStart, pEnd, inStart, inEnd) {
+    if (pStart > pEnd || inStart > inEnd) return null;
+
+    let rootVal = preorder[pStart];
+    let inIndex = inorder.indexOf(rootVal);
+    let nLeft = inIndex - inStart;
+
+    let root = new TreeNode(rootVal);
+
+    root.left = recurse(pStart + 1, pStart + nLeft, inStart, inEnd - 1);
+    root.right = recurse(pStart + 1 + nLeft, pEnd, inIndex + 1, inEnd);
+
+    return root;
+  }
+  return recurse(0, preorder.length - 1, 0, inorder.length - 1);
+};
+```
