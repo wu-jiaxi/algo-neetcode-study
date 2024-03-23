@@ -347,3 +347,28 @@ var isValidBST = function (root) {
   return recurse(root, -Infinity, Infinity);
 };
 ```
+
+230 Kth Smallest Element in a BST https://leetcode.com/problems/kth-smallest-element-in-a-bst/description/ https://www.youtube.com/watch?v=za9OrjpbaCs
+
+```jsx
+var kthSmallest = function (root, k) {
+  let arr = [];
+  inOrder(root, arr);
+  return findKth(arr, k);
+};
+
+function inOrder(root, arr) {
+  if (!root) return;
+  inOrder(root.left, arr);
+  arr.push(root.val);
+  inOrder(root.right, arr);
+}
+
+function findKth(arr, k) {
+  for (i = 0; i <= arr.length; i++) {
+    if (i === k - 1) {
+      return arr[i];
+    }
+  }
+}
+```
