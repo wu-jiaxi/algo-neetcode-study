@@ -396,3 +396,24 @@ var buildTree = function (preorder, inorder) {
   return recurse(0, preorder.length - 1, 0, inorder.length - 1);
 };
 ```
+
+124 Binary Tree Maximum Path Sum https://leetcode.com/problems/binary-tree-maximum-path-sum/description/ https://www.youtube.com/watch?v=EK0A__Ri2Ms
+
+```jsx
+var maxPathSum = function (root) {
+  let max = -Infinity;
+
+  function dfs(root) {
+    if (!root) return 0;
+
+    let left = Math.max(0, dfs(root.left));
+    let right = Math.max(0, dfs(root.right));
+    let curMax = left + root.val + right;
+
+    max = Math.max(curMax, max);
+    return root.val + Math.max(left, right);
+  }
+  dfs(root);
+  return max;
+};
+```
