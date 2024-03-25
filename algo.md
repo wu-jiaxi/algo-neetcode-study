@@ -417,3 +417,25 @@ var maxPathSum = function (root) {
   return max;
 };
 ```
+
+543 Diameter Of Binary Tree https://www.youtube.com/watch?v=Q2M9GYs_kuM https://leetcode.com/problems/diameter-of-binary-tree/
+
+```jsx
+var diameterOfBinaryTree = function (root) {
+  maxD = 0;
+
+  function dfs(node) {
+    if (!node) return 0;
+    let left = dfs(node.left);
+    let right = dfs(node.right);
+    let currD = right + left;
+
+    maxD = Math.max(currD, maxD);
+
+    return Math.max(left + 1, right + 1);
+  }
+
+  dfs(root);
+  return maxD;
+};
+```
