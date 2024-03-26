@@ -436,6 +436,5 @@ var diameterOfBinaryTree = function (root) {
   }
 
   dfs(root);
-  return maxD;
 };
 ```
