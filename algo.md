@@ -439,3 +439,22 @@ var diameterOfBinaryTree = function (root) {
   return maxD;
 };
 ```
+
+```jsx
+var buildTree = function (preorder, inorder) {
+  recurse = (pStart, pEnd, inStart, inEnd) => {
+    if (pStart > pEnd || inStart > inEnd) return null;
+    let rootVal = preorder[pStart];
+    let inIndex = inorder.indexOf(rootVal);
+    let nleft = inIndex - inStart;
+
+    let root = new TreeNode(rootVal);
+
+    root.left = recurse(pStart + 1, pStart + nleft, inStart, inEnd + 1);
+    root.right = recurse(pStart + 1 + nleft, pEnd, inIndex + 1, inEnd);
+
+    return root;
+  };
+  return recurse(0, preorder.length - 1, 0, inorder.length - 1);
+};
+```
