@@ -458,3 +458,27 @@ var buildTree = function (preorder, inorder) {
   return recurse(0, preorder.length - 1, 0, inorder.length - 1);
 };
 ```
+
+572 Subtree of Another Tree https://leetcode.com/problems/subtree-of-another-tree/ https://www.youtube.com/watch?v=amZ7QmuIIII
+
+```jsx
+var isSubtree = function (root, subRoot) {
+  isSame = (root1, root2) => {
+    if (root1 === null && root2 === null) return true;
+    if (!root1 || !root2 || root1.val !== root2.val) return false;
+
+    return isSame(root1.left, root2.left) && isSame(root1.right, root2.right);
+  };
+
+  dfs = (node) => {
+    if (!node) return false;
+
+    if (isSame(node, subRoot)) {
+      return true;
+    }
+
+    return dfs(node.left) || dfs(node.right);
+  };
+  return dfs(root);
+};
+```
