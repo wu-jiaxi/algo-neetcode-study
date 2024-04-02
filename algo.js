@@ -10,7 +10,10 @@ function determineWinner(votes) {
   });
 
   const voteCountArray = Object.entries(voteCount).map(
-    ([candidate, count]) => ({ candidate, count })
+    ([candidate, count]) => ({
+      candidate,
+      count,
+    })
   );
 
   voteCountArray.sort((a, b) => b.count - a.count);
