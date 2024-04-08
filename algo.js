@@ -17,16 +17,6 @@ function determineWinner(votes) {
 
   let winners = [];
   let highestCount = 0;
-
-  for (const candidate of voteCountArray) {
-    if (candidate.count >= highestCount) {
-      highestCount = candidate.count;
-      winners.push(candidate.candidate);
-    } else {
-      break;
-    }
-  }
-  return winners;
 }
 
 const votes = ["A", "B", "C", "D", "A", "B", "C", "A", "D"];
