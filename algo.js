@@ -13,7 +13,7 @@ function determineWinner(votes) {
     ([candidate, count]) => ({ candidate, count })
   );
 
-  voteCountArray.sort((a, b) => b.count - a.count);
+  
 
   let winners = [];
   let highestCount = 0;
