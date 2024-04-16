@@ -1,16 +1,7 @@
 function determineWinner(votes) {
   let voteCount = {};
 
-  votes.forEach((vote) => {
-    if (voteCount[vote]) {
-      voteCount[vote]++;
-    } else {
-      voteCount[vote] = 1;
-    }
-  });
-
-  
-  
+  votes.forEach((vote) => {});
 }
 
 const votes = ["A", "B", "C", "D", "A", "B", "C", "A", "D"];
